@@ -25,8 +25,13 @@ if tput setaf 1 &> /dev/null; then
 
   # If the terminal supports at least 256 colors, write out our 256 color based set
   if [[ "$(tput colors)" -ge 256 ]] &> /dev/null; then
+    # Add conditional to make root user color bright red as a reminder
+    if [[ "$UID" == 0 ]]; then
+      sexy_bash_prompt_user_color="$sexy_bash_prompt_bold$(tput setaf 160)" # BOLD MAGENTA
+    else
+      sexy_bash_prompt_user_color="$sexy_bash_prompt_bold$(tput setaf 125)" # BOLD MAGENTA
+    fi
     # Customized colors:
-    sexy_bash_prompt_user_color="$sexy_bash_prompt_bold$(tput setaf 125)" # BOLD MAGENTA
     sexy_bash_prompt_preposition_color="$sexy_bash_prompt_bold$(tput setaf 244)" # BOLD WHITE
     sexy_bash_prompt_device_color="$sexy_bash_prompt_bold$(tput setaf 166)" # BOLD ORANGE
     sexy_bash_prompt_dir_color="$sexy_bash_prompt_bold$(tput setaf 64)" # BOLD GREEN
