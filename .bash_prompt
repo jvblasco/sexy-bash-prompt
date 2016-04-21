@@ -3,7 +3,7 @@
 # https://github.com/twolfson/sexy-bash-prompt
 # Forked from gf3, https://gist.github.com/gf3/306785
 
-# Export environment variables for color terminals
+# Set environment variables for color terminals
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]]  && infocmp gnome-256color >/dev/null 2>&1; then export TERM=gnome-256color
 elif [[ $TERM != dumb ]] && infocmp xterm-256color >/dev/null 2>&1; then export TERM=xterm-256color
 fi
@@ -25,11 +25,11 @@ if tput setaf 1 &> /dev/null; then
 
   # If the terminal supports at least 256 colors, write out our 256 color based set
   if [[ "$(tput colors)" -ge 256 ]] &> /dev/null; then
-    sexy_bash_prompt_user_color="$sexy_bash_prompt_bold$(tput setaf 27)" # BOLD BLUE
-    sexy_bash_prompt_preposition_color="$sexy_bash_prompt_bold$(tput setaf 7)" # BOLD WHITE
-    sexy_bash_prompt_device_color="$sexy_bash_prompt_bold$(tput setaf 39)" # BOLD CYAN
-    sexy_bash_prompt_dir_color="$sexy_bash_prompt_bold$(tput setaf 76)" # BOLD GREEN
-    sexy_bash_prompt_git_status_color="$sexy_bash_prompt_bold$(tput setaf 154)" # BOLD YELLOW
+    sexy_bash_prompt_user_color="$sexy_bash_prompt_bold$(tput setaf 125)" # BOLD MAGENTA
+    sexy_bash_prompt_preposition_color="$sexy_bash_prompt_bold$(tput setaf 244)" # BOLD WHITE
+    sexy_bash_prompt_device_color="$sexy_bash_prompt_bold$(tput setaf 166)" # BOLD ORANGE
+    sexy_bash_prompt_dir_color="$sexy_bash_prompt_bold$(tput setaf 64)" # BOLD GREEN
+    sexy_bash_prompt_git_status_color="$sexy_bash_prompt_bold$(tput setaf 61)" # BOLD PURPLE
     sexy_bash_prompt_git_progress_color="$sexy_bash_prompt_bold$(tput setaf 9)" # BOLD RED
   else
   # Otherwise, use colors from our set of 8
